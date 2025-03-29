@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "colorize"
+version = "0.1.0"
+description = ""
+authors = ["Qwest1204 <myPCwithUbuntu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+notebook = "^7.3.3"
+torch = "^2.6.0"
+torchvision = "^0.21.0"
+torchinfo = "^1.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
