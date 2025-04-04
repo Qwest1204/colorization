@@ -6,27 +6,32 @@ class CNN(nn.Module):
     def __init__(self):
         super().__init__()
 
+        self.pool = nn.MaxPool2d(kernel_size=3, stride=1, padding=1)
+
         def conv(in_ch, out_ch):
             layers = [
                         nn.Conv2d(in_ch, out_ch, kernel_size=5, stride=1, padding=2),
+                        nn.BatchNorm2d(out_ch),
                         nn.ReLU(),
-                        nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
+                        self.pool, #nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
                         ]
             return layers
 
         def fconv(in_ch, out_ch):
             layers = [
                         nn.ConvTranspose2d(in_ch, out_ch, kernel_size=5, stride=1, padding=2),
+                        nn.BatchNorm2d(out_ch),
                         nn.ReLU(),
-                        nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
+                        #self.pool,#nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
                         ]
             return layers
 
         def tconv(in_ch, out_ch):
             layers = [
                         nn.ConvTranspose2d(in_ch, out_ch, kernel_size=5, stride=1, padding=2),
+                        nn.BatchNorm2d(out_ch),
                         nn.Tanh(),
-                        nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
+                        #self.pool, #nn.MaxPool2d(kernel_size=5, stride=1, padding=2),
                         ]
             return layers
 
